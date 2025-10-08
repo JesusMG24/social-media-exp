@@ -27,15 +27,13 @@ function App() {
   }
 
   return (
-    <main className='flex flex-col w-screen items-center mt-10 gap-5'> 
-      {!username && (
-        <div>
-          <Login setUsername={setUsername}/>
-        </div>
-      )}
-      <header className='font-bold flex font-normal gap-5'>
+    <main className='flex flex-col w-screen items-center'>
+      <header className='font-bold flex font-normal gap-5 py-5'>
         <h2>{username ? username : ""}</h2>
         <button className='bg-gray-500 rounded-full flex w-20 justify-center' onClick={handleLogout} style={{ display: username ? "flex" : "none"}}>Logout</button>
+        <div style={{ display: !username ? "flex" : "none"}}>
+          <Login setUsername={setUsername}/>
+        </div>
       </header>
       <Posts username={username}/>
     </main>

@@ -25,7 +25,7 @@ export default function Login(props) {
   };
 
   return (
-    <form onSubmit={onSubmit} className="flex sticky">
+    <form onSubmit={onSubmit} className="flex">
       <input className="bg-gray-900 rounded-l-md focus:outline-none w-60" type="text" value={userForm} onChange={(e) => setUserForm(e.target.value)} placeholder="You can type any username!"/>
       <button type="submit" className="bg-gray-500 rounded-r-md flex w-15 justify-center">Login</button>
     </form>

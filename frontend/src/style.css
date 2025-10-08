@@ -4,3 +4,7 @@ body {
     background-color: #1d2a35;
     color: white;
 }
+
+button {
+    cursor: pointer;
+}
