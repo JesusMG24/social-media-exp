@@ -7,7 +7,7 @@ const SESSION_TTL_HOURS = Number(process.env.SESSION_TTL_HOURS || 24);
 
 router.post("/demo-login", async (req, res) => {
   try {
-    const wanted = (req.body?.username || "").trim().slice(0, 32) || `guest-${crypto.randomBytes(3).toString("hex")}`;
+    const wanted = (req.body?.username || "").trim().slice(0, 32);
 
     // find or create user
     const user =

@@ -33,3 +33,13 @@ export const editPost = async (data) => {
 export const deletePost = async (id) => {
     await api.delete(`/posts/${id}`);  
 };
+
+export const fetchUserPosts = async ({ offset = 0, limit = 10, userid } = {}) => {
+    try {
+        const response = await api.get(`/users/${userid}/posts`, { params: { offset, limit } });
+        return response.data || [];
+    } catch (error) {
+        console.error("Failed to fetch posts:", error);
+        return [];
+    }
+};

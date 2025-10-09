@@ -1,9 +1,12 @@
 import { postLogin } from "../api/login";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
-export default function Login(props) {
-  const { setUsername } = props;
+export default function Login() {
+  const { username, setUsername } = useAuth();
   const [userForm, setUserForm] = useState("");
+
+  if (username) return null;
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -12,12 +15,6 @@ export default function Login(props) {
     try {
       await postLogin({ username });
       setUsername(username);
-      const now = new Date();
-      const item = {
-        value: username,
-        expiry: now.getTime() + 86400000,
-      };
-      localStorage.setItem("username", JSON.stringify(item));
       setUserForm("");
     } catch (err) {
       console.error("Failed to Login:", err);

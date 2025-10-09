@@ -11,7 +11,7 @@ router.get("/posts", async (req, res) => {
     const { rows } = await pool.query(
       `SELECT
       p.id, p.title, p.content, p.created_at, p.updated_at,
-      u.username AS author, u.avatar_url
+      u.username AS author, u.id AS author_id, u.avatar_url
       FROM posts p
       JOIN users u ON u.id = p.user_id
       ORDER BY p.created_at DESC, p.id DESC

@@ -4,6 +4,7 @@ import postsRoutes from "./routes/posts.js";
 import cookieParser from "cookie-parser";
 import { auth } from "./middleware/auth.js";
 import authRoutes from "./routes/auth.js";
+import usersRoutes from "./routes/users.js";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -28,6 +29,7 @@ app.use(auth);
 
 app.use("/", postsRoutes);
 app.use("/auth", authRoutes);
+app.use("/users", usersRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
