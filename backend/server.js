@@ -19,7 +19,7 @@ const app = express();
 app.use("/static", express.static(path.join(__dirname, "static")));
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.URL || "http://localhost:5173",
   credentials: true,
 }));
 
