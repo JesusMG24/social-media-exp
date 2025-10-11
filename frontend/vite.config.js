@@ -8,4 +8,7 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  server: {
+    allowedHosts: ['laudable-rebirth-production.up.railway.app'],
+  },
 })
