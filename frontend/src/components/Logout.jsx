@@ -13,13 +13,13 @@ export default function Logout() {
     };
     
     return (
-        <>
+        <div className="flex gap-[10vw] 2xl:gap-[2vw] 2xl:py-[2vh] 2xl:border-x 2xl:w-[40vw] 2xl:justify-center 2xl:border-gray-700">
             <h2>
                 {username}
             </h2>
             <button className='bg-gray-500 rounded-full flex w-20 justify-center' onClick={handleLogout}>
                 Logout
             </button>
-        </>
+        </div>
     )
 }

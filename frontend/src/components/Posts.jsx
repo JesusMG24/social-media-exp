@@ -84,32 +84,32 @@ export default function Posts(props) {
 
     return (
         <section className="w-screen">
-            <ul className="w-screen flex flex-col">
+            <PostForm {...postForm} />
+            <ul className="w-screen flex flex-col 2xl:px-[30vw]">
                 {posts.map((post, index) => {
                     const isLast = index === posts.length - 1;
                     return (
-                        <li key={post.id} ref={isLast ? lastPostRef : null} className="border-t border-gray-700 pt-15 pb-10 pl-[15vw] pr-[5vw] flex flex-col gap-2 relative">
-                            <div className="flex absolute left-4 top-5 gap-2 font-bold">
+                        <li key={post.id} ref={isLast ? lastPostRef : null} className="border-t border-gray-700 pt-15 pb-10 pl-[15vw] pr-[5vw] flex flex-col gap-2 relative 2xl:px-[10vw] 2xl:border-x">
+                            <div className="flex absolute left-4 top-5 gap-2 font-bold 2xl:left-[6vw]">
                                 <img className="h-10 aspect-square rounded-full" src={post.avatar_url} />
                                 <p><a href={`/profile/${post.author_id}`}>{post.author}</a></p>
                             </div>
                             {username && post.author === username && (
-                            <div className="absolute top-5 right-3 flex gap-5">
+                            <div className="absolute top-5 right-3 flex gap-5 2xl:right-[6vw]">
                                 <button className="underline" onClick={() => {setEditingId(post.id); setPostTitle(post.title); setPostContent(post.content); setShowPost(true); setShowPostButton(false);}}>Edit</button>
                                 <button className="text-red-500 font-bold scale-x-150" onClick={() => handleDelete(post.id)}>X</button>
                             </div>
                             )}
-                            <p className="absolute bottom-3 right-3 text-gray-500 text-xs">Posted: {formatDate(post.created_at)}</p>
-                            <p className="absolute bottom-3 left-3 text-gray-500 text-sm" style={{ display: post.updated_at === post.created_at ? "none" : "flex" }} title={formatDate(post.updated_at)}>Edited</p>
+                            <p className="absolute bottom-3 right-3 text-gray-500 text-xs 2xl:right-[6vw]">Posted: {formatDate(post.created_at)}</p>
+                            <p className="absolute bottom-3 left-3 text-gray-500 text-sm 2xl:left-[6vw]" style={{ display: post.updated_at === post.created_at ? "none" : "flex" }} title={formatDate(post.updated_at)}>Edited</p>
                             <h3><strong>{post.title}</strong></h3>
                             <p>{post.content}</p>
                         </li>
                     );
                 })}
                 {loading && <li className="flex w-full justify-center"><div className="animate-spin inline-block size-6 border-3 border-current border-t-transparent text-gray-400 rounded-full"></div></li>}
-                {!hasMore && posts.length > 0 && <li className="py-4 text-center text-gray-500 border-t border-gray-700">No more posts</li>}
+                {!hasMore && posts.length > 0 && <li className="py-4 text-center text-gray-500 border-t border-gray-700 2xl:border-x">No more posts</li>}
             </ul>
-            <PostForm {...postForm} />
         </section>
     )
 }

@@ -11,10 +11,10 @@ export default function PostForm(props) {
     } = props;
     
     return (
-        <section>
+        <section className="2xl:w-screen 2xl:flex 2xl:justify-center">
             {showPost && (
-                <form className="flex flex-col fixed w-full bg-black top-0 h-screen" onSubmit={handlePost}>
-                    <div className="flex gap-[50vw] justify-around mt-5">
+                <form className="flex flex-col fixed w-full bg-black top-0 h-screen 2xl:items-center 2xl:static 2xl:w-[40vw] 2xl:h-[30vh] 2xl:bg-zinc-800 2xl:border-x 2xl:border-t 2xl:border-gray-700" onSubmit={handlePost}>
+                    <div className="flex gap-[50vw] justify-around mt-5 2xl:gap-[30vw]">
                         <button type="button" className="scale-x-150" onClick={() => {setShowPost(false); setShowPostButton(true); setEditingId(null); setPostContent(""); setPostTitle("");}}>
                             X
                         </button>
@@ -24,12 +24,12 @@ export default function PostForm(props) {
                     </div>
                     <h3 className="text-center mt-5">{username}</h3>
                     <div className="w-full flex flex-col items-center mt-5 text-xl gap-2">
-                        <textarea value={postTitle} className="w-[80vw] max-h-[40vh] focus:outline-hidden" placeholder="Your post title..." onChange={(e) => {setPostTitle(e.target.value)}} rows={2}></textarea>
-                        <textarea value={postContent} className="w-[80vw] max-h-[40vh] overflow-y-auto resize-none focus:outline-hidden" onChange={(e) => {setPostContent(e.target.value)}} rows={10} placeholder="What are you thinking?"></textarea>
+                        <textarea value={postTitle} className="w-[80vw] max-h-[40vh] focus:outline-hidden 2xl:w-[30vw]" placeholder="Your post title..." onChange={(e) => {setPostTitle(e.target.value)}} rows={2}></textarea>
+                        <textarea value={postContent} className="w-[80vw] max-h-[40vh] overflow-y-auto resize-none focus:outline-hidden 2xl:w-[30vw]" onChange={(e) => {setPostContent(e.target.value)}} rows={10} placeholder="What are you thinking?"></textarea>
                     </div>
                 </form>
             )}
-            <button onClick={() => {setShowPost(true); setShowPostButton(false);}} style={{ display: showPostButton && username ? "flex" : "none" }} className="fixed z-50 rounded-full bg-blue-500 flex aspect-square items-center justify-center w-15 bottom-[15vw] right-[5vw]">
+            <button onClick={() => {setShowPost(true); setShowPostButton(false);}} style={{ display: showPostButton && username ? "flex" : "none" }} className="fixed z-50 rounded-full bg-blue-500 flex aspect-square items-center justify-center w-15 bottom-[10vh] right-[5vw]">
                 <p className="text-3xl">+</p>
             </button> 
         </section>

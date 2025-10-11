@@ -22,7 +22,7 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="flex">
+    <form onSubmit={onSubmit} className="flex 2xl:w-[40vw] 2xl:border-x 2xl:border-gray-700 2xl:justify-center 2xl:py-[2vh]">
       <input className="bg-gray-900 rounded-l-md focus:outline-none w-60" type="text" value={userForm} onChange={(e) => setUserForm(e.target.value)} placeholder="You can type any username!"/>
       <button type="submit" className="bg-gray-500 rounded-r-md flex w-15 justify-center">Login</button>
     </form>
