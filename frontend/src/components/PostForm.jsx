@@ -13,7 +13,7 @@ export default function PostForm(props) {
     return (
         <section className="2xl:w-screen 2xl:flex 2xl:justify-center">
             {showPost && (
-                <form className="flex flex-col fixed w-full bg-black top-0 h-screen 2xl:items-center 2xl:static 2xl:w-[40vw] 2xl:h-[30vh] 2xl:bg-zinc-800 2xl:border-x 2xl:border-t 2xl:border-gray-700" onSubmit={handlePost}>
+                <form className="z-50 flex flex-col fixed w-full bg-black top-0 h-screen 2xl:items-center 2xl:static 2xl:w-[40vw] 2xl:h-[30vh] 2xl:bg-zinc-800 2xl:border-x 2xl:border-t 2xl:border-gray-700" onSubmit={handlePost}>
                     <div className="flex gap-[50vw] justify-around mt-5 2xl:gap-[30vw]">
                         <button type="button" className="scale-x-150" onClick={() => {setShowPost(false); setShowPostButton(true); setEditingId(null); setPostContent(""); setPostTitle("");}}>
                             X
