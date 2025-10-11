@@ -18,7 +18,12 @@ router.get("/posts", async (req, res) => {
       LIMIT $1 OFFSET $2`,
       [limit, offset]
     );
-    res.json(rows);
+    const mapped = rows.map(r => ({
+            ...r,
+            avatar_url: `${process.env.BASE_URL}${r.avatar_url}`
+        }));
+
+    res.json(mapped);
   } catch (error) {
     console.error("GET /posts failed:", error);
     res.status(500).json({ error: "Internal server error" });

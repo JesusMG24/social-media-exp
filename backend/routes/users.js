@@ -33,7 +33,12 @@ router.get('/:userid/posts', async (req, res) => {
             LIMIT $2 OFFSET $3`,
             [userid, limit, offset]
         );
-        res.json(rows);
+        const mapped = rows.map(r => ({
+            ...r,
+            avatar_url: `${process.env.BASE_URL}${r.avatar_url}`
+        }));
+
+        res.json(mapped);
     } catch (error) {
         res.status(500).json({ error: "Internal server error" });
     }
